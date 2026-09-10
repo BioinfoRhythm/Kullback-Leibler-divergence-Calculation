@@ -1,14 +1,15 @@
 # Kullback-Leibler-divergence-Calculation
 The Kullback–Leibler divergence (KL divergence or DKL) is a measure from information theory that quantifies how one probability distribution diverges from another.
 
-///bash
+```bash
 import os
-///
-
+```
+```bash
 import math
-
+```
+```bash
 from Bio import SeqIO
-
+```
 def calc_mono_freq(seq):
     seq = seq.upper()
     counts = {base: seq.count(base) for base in 'ATGC'}
