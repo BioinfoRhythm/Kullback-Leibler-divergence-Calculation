@@ -4,7 +4,9 @@ The Kullback–Leibler divergence (KL divergence or DKL) is a measure from infor
 '''bash
 
 import os
+
 import math
+
 from Bio import SeqIO
 
 def calc_mono_freq(seq):
