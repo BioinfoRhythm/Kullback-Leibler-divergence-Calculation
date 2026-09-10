@@ -3,14 +3,9 @@ The Kullback–Leibler divergence (KL divergence or DKL) is a measure from infor
 
 ```bash
 import os
-```
-```bash
 import math
-```
-```bash
 from Bio import SeqIO
-```
-```bash
+
 def calc_mono_freq(seq):
     seq = seq.upper()
     counts = {base: seq.count(base) for base in 'ATGC'}
@@ -18,8 +13,7 @@ def calc_mono_freq(seq):
     if total == 0:
         return {base: 0 for base in 'ATGC'}
     return {base: counts[base]/total for base in 'ATGC'}
-```
-```bash
+
 def calc_tetra_freq(seq):
     seq = seq.upper()
     tetra_keys = [a+b+c+d for a in 'ATGC' for b in 'ATGC' for c in 'ATGC' for d in 'ATGC']
@@ -41,7 +35,7 @@ def calc_expected_tetra_freq(mono_freqs):
                     tetra = a+b+c+d
                     expected[tetra] = mono_freqs[a]*mono_freqs[b]*mono_freqs[c]*mono_freqs[d]
     return expected
-```
+
 def calc_DKL(observed, expected):
     dkl = 0.0
     for tetra in observed:
@@ -83,5 +77,4 @@ for fna_file in fna_files:
             for start, end, dkl in results:
                 out.write(f"{record.id}\t{start}\t{end}\t{dkl:.6f}\n")
     print(f"Processed {fna_file} -> {output_path}")
-
-'''
+```
